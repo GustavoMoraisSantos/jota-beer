@@ -134,12 +134,14 @@ export const galleryItems: {
     image: "/galeria/chopp-e-momentos.jpg",
   },
   {
-    title: "Fachada e atendimento",
-    text: "Imagens reais da fachada e do atendimento podem ser adicionadas aqui.",
+    title: "Clientes e confraternização",
+    text: "Momentos de confraternização com clientes e amigos da região.",
+    image: "/galeria/clientes-confraternizacao.jpg",
   },
   {
-    title: "Parceiros e novidades",
-    text: "Imagens de parceiros e novidades podem ser adicionadas aqui.",
+    title: "Encontros e bons momentos",
+    text: "Ambiente para encontros e bons momentos a qualquer hora.",
+    image: "/galeria/encontros-noite.jpg",
   },
 ];
 
