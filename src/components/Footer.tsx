@@ -19,7 +19,9 @@ export default function Footer() {
                 {business.name}
               </span>
             </div>
-            <p className="mt-4 text-sm text-muted">{business.address.full}</p>
+            <p className="mt-4 text-sm text-muted md:text-nowrap">
+              {business.address.full}
+            </p>
           </div>
 
           <div>
