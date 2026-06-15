@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { galleryItems } from "@/data/business";
 import SectionTitle from "./SectionTitle";
 
@@ -8,31 +9,62 @@ export default function Gallery() {
         <SectionTitle
           eyebrow="Galeria"
           title="Cases e momentos da Jota Beer"
-          description="Espaço preparado para receber fotos reais da empresa. As imagens abaixo são marcadores que podem ser substituídos quando o material oficial estiver disponível."
+          description="Um pouco do ambiente e da variedade da Jota Beer. Os cards marcadores podem ser substituídos por fotos reais quando o material oficial estiver disponível."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryItems.map((item) => (
-            <figure
-              key={item.title}
-              className="flex aspect-[4/5] flex-col justify-end rounded-2xl border border-brand/20 bg-ink p-6"
-            >
-              <div
-                aria-hidden="true"
-                className="mb-auto inline-flex h-10 w-10 items-center justify-center rounded-lg border border-brand/30 text-brand"
+          {galleryItems.map((item) =>
+            item.image ? (
+              <figure
+                key={item.title}
+                className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl border border-brand/20"
               >
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="9" cy="9" r="1.6" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 15l-5-5L5 21" />
-                </svg>
-              </div>
-              <figcaption>
-                <h3 className="text-base font-semibold text-cloud">{item.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-muted">{item.text}</p>
-              </figcaption>
-            </figure>
-          ))}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"
+                />
+                <figcaption className="relative p-6">
+                  <h3 className="text-base font-semibold text-cloud">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">
+                    {item.text}
+                  </p>
+                </figcaption>
+              </figure>
+            ) : (
+              <figure
+                key={item.title}
+                className="flex aspect-[4/5] flex-col justify-end rounded-2xl border border-brand/20 bg-ink p-6"
+              >
+                <div
+                  aria-hidden="true"
+                  className="mb-auto inline-flex h-10 w-10 items-center justify-center rounded-lg border border-brand/30 text-brand"
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="9" cy="9" r="1.6" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 15l-5-5L5 21" />
+                  </svg>
+                </div>
+                <figcaption>
+                  <h3 className="text-base font-semibold text-cloud">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted">
+                    {item.text}
+                  </p>
+                </figcaption>
+              </figure>
+            ),
+          )}
         </div>
       </div>
     </section>
