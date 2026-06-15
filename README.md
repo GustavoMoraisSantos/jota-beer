@@ -63,7 +63,13 @@ src/
 public/
   logo-jota-beer.png # Logo da marca
   galeria/           # Fotos da galeria e do banner parallax
+  fundos/            # Imagens de fundo das seções (Sobre, Contato)
 ```
+
+As seções "Sobre" e "Contato" usam imagem de fundo (`public/fundos/`) com um
+overlay escuro/degradê para manter o texto legível. Para trocar a imagem, basta
+substituir o arquivo correspondente ou editar o `backgroundImage` no componente
+(`About.tsx` / `Contact.tsx`).
 
 ## Efeitos de scroll
 
