@@ -99,13 +99,16 @@ chave fica exposta no código.
 
 ## Onde adicionar fotos reais na galeria
 
-A seção de galeria (`src/components/Gallery.tsx`) usa cards placeholders
-elegantes enquanto não há fotos oficiais. Para usar imagens reais:
+A galeria é controlada por `galleryItems` em
+[`src/data/business.ts`](src/data/business.ts). Cada item tem `title`, `text` e
+um campo opcional `image`:
 
-1. Adicione os arquivos em `public/` (ex.: `public/galeria/fachada.jpg`).
-2. Importe `next/image` no componente e substitua o card placeholder por
-   `<Image src="/galeria/fachada.jpg" alt="..." ... />`.
-3. Sempre inclua o atributo `alt` descritivo.
+1. Adicione o arquivo da foto em `public/galeria/` (ex.: `public/galeria/fachada.jpg`).
+2. Em `galleryItems`, preencha `image: "/galeria/fachada.jpg"` no item desejado.
+3. Itens **sem** `image` exibem automaticamente um card placeholder elegante.
+
+O `title` de cada item é usado como `alt` da imagem, então mantenha-o descritivo.
+Não é necessário editar `Gallery.tsx`.
 
 ## Variáveis de ambiente (opcional)
 

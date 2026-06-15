@@ -111,24 +111,37 @@ export const productCategories = [
   },
 ] as const;
 
-export const galleryItems = [
+/**
+ * Itens da galeria.
+ *
+ * Para usar uma foto real, preencha o campo `image` com o caminho do arquivo em
+ * `/public` (ex.: "/galeria/minha-foto.jpg"). Deixe `image` ausente/undefined
+ * para exibir um card placeholder elegante.
+ */
+export const galleryItems: {
+  title: string;
+  text: string;
+  image?: string;
+}[] = [
+  {
+    title: "Produtos e variedade",
+    text: "Seleção de bebidas nacionais e importadas para diferentes momentos.",
+    image: "/galeria/bar-e-produtos.jpg",
+  },
+  {
+    title: "Atendimento e momentos",
+    text: "Ambiente acolhedor para encontros e momentos especiais.",
+    image: "/galeria/chopp-e-momentos.jpg",
+  },
   {
     title: "Fachada e atendimento",
     text: "Imagens reais da fachada e do atendimento podem ser adicionadas aqui.",
   },
   {
-    title: "Produtos e conveniência",
-    text: "Fotos reais dos produtos e da conveniência podem ser adicionadas aqui.",
-  },
-  {
-    title: "Eventos e momentos especiais",
-    text: "Registros de eventos e momentos especiais podem ser adicionados aqui.",
-  },
-  {
     title: "Parceiros e novidades",
     text: "Imagens de parceiros e novidades podem ser adicionadas aqui.",
   },
-] as const;
+];
 
 export const navLinks = [
   { label: "Início", href: "#inicio" },
