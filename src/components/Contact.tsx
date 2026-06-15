@@ -18,7 +18,7 @@ function ContactLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-4 rounded-2xl border border-white/5 bg-ink p-5 transition-colors hover:border-brand/40"
+      className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-ink/70 p-5 backdrop-blur-sm transition-colors hover:border-brand/40 hover:bg-ink/85"
     >
       <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand transition-colors group-hover:bg-brand/20">
         {children}
@@ -33,8 +33,20 @@ function ContactLink({
 
 export default function Contact() {
   return (
-    <section id="contato" className="bg-ink-soft py-20 md:py-28">
-      <div className="container-px">
+    <section
+      id="contato"
+      className="relative bg-ink-soft bg-cover bg-center bg-no-repeat py-20 md:py-28"
+      style={{ backgroundImage: "url('/fundos/contato.jpg')" }}
+    >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/70 to-ink/90"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-brand/20 mix-blend-soft-light"
+      />
+      <div className="container-px relative">
         <Reveal>
           <SectionTitle
             eyebrow="Contato"

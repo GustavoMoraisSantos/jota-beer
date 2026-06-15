@@ -4,8 +4,16 @@ import SectionTitle from "./SectionTitle";
 
 export default function About() {
   return (
-    <section id="sobre" className="bg-ink py-20 md:py-28">
-      <div className="container-px grid items-center gap-12 md:grid-cols-2">
+    <section
+      id="sobre"
+      className="relative bg-ink bg-cover bg-center bg-no-repeat py-20 md:py-28"
+      style={{ backgroundImage: "url('/fundos/sobre.jpg')" }}
+    >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/45"
+      />
+      <div className="container-px relative grid items-center gap-12 md:grid-cols-2">
         <Reveal>
           <SectionTitle
             eyebrow="Sobre"
@@ -14,7 +22,7 @@ export default function About() {
           />
         </Reveal>
 
-        <Reveal delay={120} className="rounded-2xl border border-brand/20 bg-ink-soft p-8">
+        <Reveal delay={120} className="rounded-2xl border border-brand/20 bg-ink-soft/80 p-8 backdrop-blur-sm">
           <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-brand">
             {business.shortName}
           </p>
