@@ -56,11 +56,26 @@ src/
     Footer.tsx
     SectionTitle.tsx
     WhatsAppButton.tsx
+    Reveal.tsx         # Anima elementos ao entrar na tela (scroll reveal)
+    ParallaxBanner.tsx # Faixa com imagem de fundo fixa (parallax)
   data/
     business.ts      # Todos os dados editáveis da empresa
 public/
   logo-jota-beer.png # Logo da marca
+  galeria/           # Fotos da galeria e do banner parallax
 ```
+
+## Efeitos de scroll
+
+- **Scroll reveal:** `src/components/Reveal.tsx` é um wrapper que faz o conteúdo
+  surgir suavemente (fade + leve subida) quando entra na viewport, usando
+  `IntersectionObserver` (sem libs externas). Use `delay` para escalonar cards.
+  Respeita `prefers-reduced-motion` (acessibilidade).
+- **Banner parallax:** `src/components/ParallaxBanner.tsx` usa
+  `background-attachment: fixed`. Para trocar a imagem de fundo, edite o
+  `backgroundImage` no componente (aponta para um arquivo em `/public`).
+  Observação: o efeito "fixo" é desativado por padrão em alguns navegadores
+  mobile (iOS), onde a imagem rola normalmente — comportamento esperado.
 
 ## Onde editar os dados da empresa
 

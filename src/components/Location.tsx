@@ -1,17 +1,20 @@
 import { business } from "@/data/business";
+import Reveal from "./Reveal";
 import SectionTitle from "./SectionTitle";
 
 export default function Location() {
   return (
     <section id="localizacao" className="bg-ink py-20 md:py-28">
       <div className="container-px">
-        <SectionTitle
-          eyebrow="Localização"
-          title="Onde encontrar a Jota Beer"
-        />
+        <Reveal>
+          <SectionTitle
+            eyebrow="Localização"
+            title="Onde encontrar a Jota Beer"
+          />
+        </Reveal>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
-          <div className="overflow-hidden rounded-2xl border border-white/5 bg-ink-soft lg:col-span-2">
+          <Reveal className="overflow-hidden rounded-2xl border border-white/5 bg-ink-soft lg:col-span-2">
             <iframe
               src={business.map.embedUrl}
               title={business.map.label}
@@ -20,9 +23,9 @@ export default function Location() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-          </div>
+          </Reveal>
 
-          <div className="rounded-2xl border border-brand/20 bg-ink-soft p-6 sm:p-8">
+          <Reveal delay={120} className="rounded-2xl border border-brand/20 bg-ink-soft p-6 sm:p-8">
             <dl className="space-y-5">
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-widest text-brand">
@@ -63,7 +66,7 @@ export default function Location() {
                 <dd className="mt-1 text-sm text-muted">{business.openingHours}</dd>
               </div>
             </dl>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { business } from "@/data/business";
+import Reveal from "./Reveal";
 import SectionTitle from "./SectionTitle";
 
 function ContactLink({
@@ -34,14 +35,16 @@ export default function Contact() {
   return (
     <section id="contato" className="bg-ink-soft py-20 md:py-28">
       <div className="container-px">
-        <SectionTitle
-          eyebrow="Contato"
-          title="Fale com a Jota Beer"
-          description="Entre em contato para informações comerciais, disponibilidade de produtos, atendimento e novidades da Jota Beer em Corumbataí do Sul."
-          align="center"
-        />
+        <Reveal>
+          <SectionTitle
+            eyebrow="Contato"
+            title="Fale com a Jota Beer"
+            description="Entre em contato para informações comerciais, disponibilidade de produtos, atendimento e novidades da Jota Beer em Corumbataí do Sul."
+            align="center"
+          />
+        </Reveal>
 
-        <div className="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-3">
+        <Reveal delay={120} className="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-3">
           <ContactLink
             href={business.whatsapp.url}
             label="WhatsApp"
@@ -73,7 +76,7 @@ export default function Contact() {
               <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.92 3.78-3.92 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.9h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z" />
             </svg>
           </ContactLink>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
