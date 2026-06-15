@@ -1,22 +1,25 @@
 import Image from "next/image";
 import { galleryItems } from "@/data/business";
+import Reveal from "./Reveal";
 import SectionTitle from "./SectionTitle";
 
 export default function Gallery() {
   return (
     <section id="galeria" className="bg-ink-soft py-20 md:py-28">
       <div className="container-px">
-        <SectionTitle
-          eyebrow="Galeria"
-          title="Cases e momentos da Jota Beer"
-          description="Um pouco do ambiente e da variedade da Jota Beer. Os cards marcadores podem ser substituídos por fotos reais quando o material oficial estiver disponível."
-        />
+        <Reveal>
+          <SectionTitle
+            eyebrow="Galeria"
+            title="Cases e momentos da Jota Beer"
+            description="Um pouco do ambiente e da variedade da Jota Beer. Os cards marcadores podem ser substituídos por fotos reais quando o material oficial estiver disponível."
+          />
+        </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryItems.map((item) =>
+          {galleryItems.map((item, index) =>
             item.image ? (
+              <Reveal key={item.title} delay={index * 100}>
               <figure
-                key={item.title}
                 className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl border border-brand/20"
               >
                 <Image
@@ -39,9 +42,10 @@ export default function Gallery() {
                   </p>
                 </figcaption>
               </figure>
+              </Reveal>
             ) : (
+              <Reveal key={item.title} delay={index * 100}>
               <figure
-                key={item.title}
                 className="flex aspect-[4/5] flex-col justify-end rounded-2xl border border-brand/20 bg-ink p-6"
               >
                 <div
@@ -63,6 +67,7 @@ export default function Gallery() {
                   </p>
                 </figcaption>
               </figure>
+              </Reveal>
             ),
           )}
         </div>
